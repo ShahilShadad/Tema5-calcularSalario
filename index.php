@@ -1,8 +1,22 @@
 <?php
     //Ruben hace que salga el nombre del usuario con un saludo
 
-    //Esto lo hace Shahil (Como se añade empleados y salario base al pulsar el botón)
+    //Funcionalidad del botón, al hacer click añade salarioBase y nombre
     require_once "Empleado.php";
+    
+    $resultados = [];
+
+    if (isset($_POST['calcular'])) {
+        for ($i = 1; $i <= 4; $i++) {
+            $nombre = $_POST["nombre$i"];
+            $salarioBase = $_POST["salario$i"];
+
+            $empleado = new Empleado($nombre, "", $salarioBase);
+            $salarioAnual = $empleado->calcularSalarioAnual();
+
+            $resultados[] = "$nombre tiene un salario anual de " . number_format($salarioAnual, 2) . " €";
+        }
+    }
     
 ?>
 
