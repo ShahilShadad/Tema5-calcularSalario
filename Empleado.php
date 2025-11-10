@@ -10,9 +10,11 @@
             $this->apellidos= $apellidos;
             $this->salarioBase = $salarioBase;
         }
-        //Esto lo hace Shahil
+        //Función base calcularSalarioAnual (sin bonificaciones)
         function calcularSalarioAnual(){
+            return $this->salarioBase * 12;
         }
+        //Esto lo hace Shahil
         function devolverNombreCompleto(){
         }
     }
@@ -21,7 +23,11 @@
         public function __construct($nombre,$apellidos,$salarioBase)
         {
         parent::__construct($nombre,$apellidos,$salarioBase);
-
+        }
+        //Función calcular salarioAnual Gerente
+        function calcularSalarioAnual(){
+            $salarioBono = $this->salarioBase * (1+$this->$bonoGerente/100)
+            return $salarioBase * 12;
         }
     }
     class Vendedor extends Empleado{
@@ -30,6 +36,11 @@
         {
         parent::__construct($nombre,$apellidos,$salarioBase);
         $this->bonoEmpleado = rand(0,10);
+        }
+        //Función calcular salarioAnual Empleado
+        function calcularSalarioAnual(){
+        $salarioEmpleado = $this->salarioBase * (1+$this->bonoEmpleado/100);
+        return $salarioEmpleado * 12;
         }
     }
 ?>
