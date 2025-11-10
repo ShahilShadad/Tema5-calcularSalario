@@ -14,8 +14,9 @@
         function calcularSalarioAnual(){
             return $this->salarioBase * 12;
         }
-        //Esto lo hace Shahil
+        //Función que devuelve el nombre del empleado (gerente o vendedor)
         function devolverNombreCompleto(){
+            return $this->nombre."".$this->apellidos;
         }
     }
     class Gerente extends Empleado{
